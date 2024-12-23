@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      text-align: center;
+      background-color: #5e3a69;
+      color: white;
+      padding: 20px;
+      border-radius: 8px 8px 0 0;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    .header p {
+      margin: 5px 0 0;
+      font-size: 16px;
+    }
+    .section-title {
+      font-size: 20px;
+      margin: 20px 0 15px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      color: #333;
+    }
+    
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 0;
+    }
+    .form-group label {
+      flex: 1;
+      font-weight: bold;
+    }
+    .form-group input,
+    .form-group select {
+      flex: 3;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group textarea {
+      flex: 2;
+      padding: 5px;
+      border: 1px solid white;
+      border-radius: 4px;
+      resize: none;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #5e3a69;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #5e3a69;
+    }
+
+    .mic-icon {
+      cursor: pointer;
+      font-size: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Student Registration Form</h1>
+    </div>
+
+    <form method="POST" action="/form">
+
+      <!-- Personal Details -->
+      <div class="section-title">Personal Details</div>
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter first name" required />
+        <span class="mic-icon" onclick="startVoiceInput('firstName')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter last name" required />
+        <span class="mic-icon" onclick="startVoiceInput('lastName')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="fatherName">Father's Name:</label>
+        <input type="text" id="fatherName" name="fatherName" placeholder="Enter father's name" required />
+        <span class="mic-icon" onclick="startVoiceInput('fatherName')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="motherName">Mother's Name:</label>
+        <input type="text" id="motherName" name="motherName" placeholder="Enter mother's name" required />
+        <span class="mic-icon" onclick="startVoiceInput('motherName')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" placeholder="Enter age" required />
+        <span class="mic-icon" onclick="startVoiceInput('age')">🎙️</span>
+      </div>
+      
+
+      <!-- Date of Birth input with mic icon -->
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required />
+        <span class="mic-icon" onclick="startVoiceInput('dob')">🎙️</span>
+      </div>
+      <div class="form-group">
+      <label>Gender:</label>
+      <div>
+        <label><input type="radio" name="gender" value="Male" id="maleGender" /> Male / Man</label>
+        <label><input type="radio" name="gender" value="Female" id="femaleGender" /> Female / Women</label>
+        <span class="mic-icon" onclick="startSpeechRecognition('gender')">🎙️</span>
+      </div>
+      </div>
+     
+      <!-- Educational Details -->
+      <div class="section-title">Educational Details</div>
+      <div class="form-group">
+        <label for="branch">Branch:</label>
+        <input type="text" id="branch" name="branch" placeholder="Enter branch" required />
+        <span class="mic-icon" onclick="startVoiceInput('branch')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="section">Section:</label>
+        <input type="text" id="section" name="section" placeholder="Enter section" required />
+        <span class="mic-icon" onclick="startVoiceInput('section')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="rollNumber">Roll Number:</label>
+        <input type="text" id="rollNumber" name="rollNumber" placeholder="Enter roll number" required />
+        <span class="mic-icon" onclick="startVoiceInput('rollNumber')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="yearOfStudy">Year of Study:</label>
+        <input type="text" id="yearOfStudy" name="yearOfStudy" placeholder="Enter year of study" required />
+        <span class="mic-icon" onclick="startVoiceInput('yearOfStudy')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="percentage">Percentage:</label>
+        <input type="text" id="percentage" name="percentage" placeholder="Enter percentage" required />
+        <span class="mic-icon" onclick="startVoiceInput('percentage')">🎙️</span>
+      </div>
+      <!-- Other Details -->
+      <div class="section-title">Other Details</div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required />
+        <span class="mic-icon" onclick="startVoiceInput('phone')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter email address" required />
+        <span class="mic-icon" onclick="startVoiceInput('email')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="bloodGroup">Blood Group:</label>
+        <input type="text" id="bloodGroup" name="bloodGroup" placeholder="Enter blood group" />
+        <span class="mic-icon" onclick="startVoiceInput('bloodGroup')">🎙️</span>
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="Enter full address" required />
+        <span class="mic-icon" onclick="startVoiceInput('address')">🎙️</span>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US'; // Set the language for speech recognition
+  
+    // Start voice recognition for a specific input field
+    function startVoiceInput(inputId) {
+      if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US'; // Set language to English
+        recognition.start();
+  
+        recognition.onresult = function (event) {
+          const transcript = event.results[0][0].transcript.toLowerCase();
+          console.log("Recognized Speech: " + transcript); // Log the recognized speech for debugging
+  
+          if (inputId === 'gender') {
+            // Uncheck both gender radio buttons initially
+            document.getElementById("maleGender").checked = false;
+            document.getElementById("femaleGender").checked = false;
+        
+            let lowerTranscript = transcript.toLowerCase().trim();
+            console.log("Transcript:", lowerTranscript); // Debugging: Check what is being captured
+        
+            // Simple regex for detecting male and female terms
+            const femaleRegex = /\b(female|woman|women)\b/i;
+            const maleRegex = /\b(male|man|men)\b/i;
+        
+            // Direct check for male gender (prioritize "man" and "male")
+            if (maleRegex.test(lowerTranscript)) {
+                document.getElementById("maleGender").checked = true;
+            } 
+            // Check if transcript contains female-related terms
+            else if (femaleRegex.test(lowerTranscript)) {
+                document.getElementById("femaleGender").checked = true;
+            }
+            // Handle special cases like "other", "prefer not to say", etc.
+            else {
+                if (lowerTranscript.includes("other") || 
+                    lowerTranscript.includes("prefer not to say") ||
+                    lowerTranscript.includes("non-binary")) {
+                    console.log("Gender input not recognized. Possible 'Other' or 'Prefer Not to Say'.");
+                } else {
+                    console.log("Gender input not recognized. Please try again with a clear voice input.");
+                }
+            }
+        }
+        
+        
+        
+          
+
+          
+
+          // Process date of birth input
+          else if (inputId === 'dob') {
+            const date = new Date(transcript);
+            if (!isNaN(date)) {
+              // Manually convert to a Date object to prevent timezone shift
+              const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+              document.getElementById("dob").value = localDate.toISOString().split('T')[0];
+            } else {
+              console.log("Invalid date format for DOB.");
+            }
+          }
+          // Process other inputs like email
+          else if (inputId === 'email') {
+            let finalTranscript = transcript.replace(/\bat\b/g, '@').replace(/\s@/g, '@').replace(/@\s/g, '@');
+            document.getElementById(inputId).value = finalTranscript.toLowerCase();
+          }
+          // Process year of study input
+          else if (inputId === 'yearOfStudy') {
+            const yearOptions = ["1st year", "2nd year", "3rd year", "4th year"];
+            const matchingYear = yearOptions.find(year => year.toLowerCase() === transcript);
+            document.getElementById(inputId).value = matchingYear || transcript;
+          }
+          // Default behavior for other inputs
+          else {
+            let finalTranscript = transcript
+              .split(' ')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+              .join(' ');
+            document.getElementById(inputId).value = finalTranscript;
+          }
+        };
+  
+        recognition.onerror = function (event) {
+          alert('Error occurred in recognition: ' + event.error);
+        };
+      } else {
+        alert('Speech Recognition is not supported in this browser.');
+      }
+    }
+  
+    // Updated mic button function to work with gender
+    function startSpeechRecognition(inputId) {
+      if (inputId === 'gender') {
+        startVoiceInput('gender');
+      }
+    }
+  </script>
+  
+  
+</body>
+</html>
